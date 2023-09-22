@@ -1,0 +1,36 @@
+name: Run Training and App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6 # Choose the Python version you need
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run training.py
+        run: python training.py
+
+      - name: Run app.py
+        run: python app.py
+
+      - name: Wait for app to start
+        run: sleep 5s
+
+      - name: Load index.html
+        run: |
+          curl http://localhost:8080
