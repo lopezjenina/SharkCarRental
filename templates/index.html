@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shark Car Rentals</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 700px;
+}
+
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+        h2 {
+            margin: 20px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .button {
+            background-color: #1D45BC;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0046A5;
+        }
+
+        .chat-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1D45BC;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            z-index: 999; /* Ensure it's on top of other content */
+        }
+
+        .navbar {
+            background-color: #1D45BC;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #0046A5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    min-width: 400px;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 999; 
+}
+
+.title-abt p {
+    font-size: 25px;
+    color: #1D45BC;
+}
+
+.title-story p {
+    font-size: 20px;
+    color: #1D45BC;
+}
+
+.chat-header {
+background-color: #f3f3f3;
+color: #000;
+text-align: center;
+padding: 10px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 200;
+}
+
+.chat-content {
+  max-height: 300px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.chat-input {
+  display: flex;
+  padding: 30px;
+  background-color: #f9f9f9;
+}
+
+#userInput {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 40px; 
+    padding: 10px 20px;
+    margin-right: 5px;
+    background-color: #F6F8FF; 
+    color: #000;
+    width: 80%;
+
+}
+
+#send-button {
+    background-color: #1D45BC; 
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 20px;
+    width: 150px;
+}
+
+.bot-message {
+    background-color: #1D45BC;
+    padding: 10px 20px 10px 20px;
+    text-align: left;
+    border-radius: 40px;
+    color: #ffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    float: left; 
+    clear: both; 
+}
+
+
+.user-message {
+    background-color: #F6F8FF;
+    padding: 10px 20px 10px 20px;
+    text-align: right;
+    border-radius: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000;
+    width: fit-content;
+    float: right; 
+    clear: both; 
+}
+.chat-container.chat-open {
+    display: block !important;
+}
+
+.chat-container:not(.chat-open) {
+    display: none !important;
+}
+
+.chat-buttons {
+    float: right;
+}
+
+#minimize-button,
+#close-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #1D45BC;
+}
+
+#minimize-button:hover,
+#close-button:hover {
+    color: #0046A5;
+}
+
+</style>
+  
+</head>
+<body>
+    <div class="navbar">
+        <h2>SHARK</h2>
+    </div>
+    
+    <div class="header">
+        <h1>Welcome to Shark Car Rentals</h1>
+        <p>Your Trusted Partner for Car Rentals</p>
+        <a href="#" class="button">Explore Our Fleet</a>
+    </div>    
+
+    
+
+    <div class="container">
+        <div class="title-abt"><center><p><b>ABOUT US</b></p></center></div>
+        <p>Welcome to Shark Car Rentals, your premier destination for hassle-free and affordable car rentals. With a deep commitment to providing exceptional service and a fleet of top-notch vehicles, we aim to make your journey as smooth and enjoyable as possible.</p>
+<br>
+        <div class="title-story"><center><p><b>OUR STORY</b></p></center></div>
+        <p>Established with a passion for helping travelers explore new horizons, Shark Car Rentals was founded in [Year] by a team of experienced professionals in the automotive and hospitality industries. Our journey began with a simple idea: to offer a reliable, customer-centric car rental service that caters to the diverse needs of our clients.</p>
+        <p>Over the years, we have grown into a trusted name in the car rental industry, thanks to our unwavering dedication to quality, transparency, and customer satisfaction. We understand that each journey is unique, and that's why we go the extra mile to provide personalized solutions for all your transportation needs.</p>
+    </div>
+
+    <div id="chat-toggle" class="chat-toggle" onclick="toggleChat()">Chat</div>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="chat-buttons">
+                <button id="close-button" onclick="closeChat()">&times;</button>
+            </div>
+            <h4><b>Chat Support</b></h4>
+            
+                
+            
+            <div id="chatbox" class="chat-content">
+            </div>
+            <input class="chat-input" type="text" id="userInput" placeholder="Type here">
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const chatToggle = document.querySelector('.chat-toggle');
+            const chatContainer = document.querySelector('.chat-container');
+            chatToggle.addEventListener('click', function() {
+                chatContainer.classList.toggle('chat-open');
+            });
+    
+            const userInput = document.getElementById('userInput');
+            const chatbox = document.getElementById('chatbox');
+    
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (message === '') return;
+
+                fetch('/api/chatbot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    chatbox.innerHTML += `<div class="user-message">${message}</div>`;
+                    chatbox.innerHTML += `<div class="bot-message">${data.response}</div>`;
+                    chatbox.scrollTop = chatbox.scrollHeight;
+                    userInput.value = '';
+                });
+            }
+    
+            document.getElementById('send-button').addEventListener('click', sendMessage);
+        });
+
+
+function closeChat() {
+    const chatContainer = document.querySelector('.chat-container');
+    chatContainer.classList.remove('chat-open');
+}
+    </script>
+    
+</body>
+</html>
