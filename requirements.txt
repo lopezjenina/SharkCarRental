@@ -2,4 +2,3 @@ nltk
 numpy
 tensorflow
 Flask
-nltk.download('punkt')
