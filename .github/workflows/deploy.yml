@@ -1,4 +1,4 @@
-name: Run Training and App
+name: Deploy and Run Chatbot
 
 on:
   push:
@@ -16,12 +16,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8 # Choose the Python version you need
+          python-version: '3.x'  # Replace 'x' with your desired Python version
 
       - name: Install dependencies
-        run: pip install --upgrade pip
+        run: |
           pip install -r requirements.txt
-
+          python -m nltk.downloader punkt
 
       - name: Run training.py
         run: python training.py
@@ -29,9 +29,8 @@ jobs:
       - name: Run app.py
         run: python app.py
 
-      - name: Wait for app to start
-        run: sleep 5s
-
-      - name: Load index.html
-        run: |
-          curl http://localhost:8080
+      - name: Deploy website
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./path/to/your/website
