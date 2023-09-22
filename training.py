@@ -14,7 +14,7 @@ from tensorflow.keras.optimizers.schedules import ExponentialDecay
 
 lemmatizer = WordNetLemmatizer()
 
-intents = json.loads(open(r'C:\Users\jenin\OneDrive\Documents\Car Rental Full Stack\ChatBot\intents.json').read())
+intents = json.loads(open('intents.json').read())
 
 words = []
 classes = []
