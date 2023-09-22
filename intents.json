@@ -1,0 +1,20 @@
+{"intents":[
+    {"tag": "greetings",
+    "patterns": ["hello", "hey", "hi", "good day", "greetings", "what's up?", "how is it going?"],
+    "responses": ["Hello!", "Hi!", "What can I do for you?", "How may I help?"]},
+    {"tag": "goodbye",
+    "patterns": ["See ya", "Goodbye", "Have a good day ahead!", "Bye"],
+    "responses": ["Sad to see you go.", "Talk to you later", "Alright, bye!"]},
+    {"tag": "website",
+    "patterns": ["link", "site", "website", "what is your site"],
+    "responses": ["https://www.enterprise.com/en/home.html", "Visit us here, https://www.enterprise.com/en/home.html!", "Check us out at https://www.enterprise.com/en/home.html!"]},
+    {"tag": "vehicle",
+    "patterns": ["what are your available vehicles for rent", "available vehicle for rent", "for rent", "rental vehicle"],
+    "responses": ["We have Cars, SUVs, Trucks, Vans & Offroad"]},
+    {"tag": "location",
+    "patterns": ["Where are you located?", "Location", "Shop location", "Shop located"],
+    "responses": ["We have different locations internationally! We have branches in Asia, Australia, Europe and Americas. Check us out at https://www.enterprise.com/en/home.html!"]},
+    {"tag": "time",
+    "patterns": ["when are you guys open?", "your hours", "hours", "operation"],
+    "responses": ["We are open 24/7 at your service!"]}
+]}
