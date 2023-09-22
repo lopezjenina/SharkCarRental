@@ -10,7 +10,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 
 lemmatizer = WordNetLemmatizer()
-intents = json.loads(open(r'C:\Users\jenin\OneDrive\Documents\Car Rental Full Stack\ChatBot\intents.json').read())
+intents = json.loads(open('intents.json').read())
 
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
